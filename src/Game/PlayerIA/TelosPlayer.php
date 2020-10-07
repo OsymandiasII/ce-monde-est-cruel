@@ -40,8 +40,38 @@ class TelosPlayer extends Player
         // -------------------------------------    -----------------------------------------------------
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
+        $choices = $this->result->getStatsFor($this->opponentSide);
+
+        $paperScore = $choices['paper'];
+        $rockScore = $choices['rock'];
+        $scissorsScore = $choices['scissors'];
 
         $choice = $this->result->getLastChoiceFor($this->opponentSide);
+        if ($paperScore > max($rockScore, $scissorsScore))
+        {
+            if ($paperScore - max($rockScore, $scissorsScore) > 3)
+                return parent::scissorsChoice();
+            else {
+                return parent::paperChoice();
+            }
+        }
+        if ($rockScore > max($paperScore, $scissorsScore))
+        {
+            if ($rockScore - max($paperScore, $scissorsScore) > 3)
+                return parent::paperChoice();
+            else{
+                return parent::scissorsChoice();
+            }
+        }
+        if ($scissorsScore > max($paperScore, $rockScore))
+        {
+            if ($scissorsScore - max($paperScore, $scissorsScore) > 3)
+                return parent::rockChoice();
+            else {
+                return parent::rockChoice();
+            }
+        }
+/*
         if($choice == 'rock'){
             return parent::paperChoice();
         }
@@ -52,9 +82,9 @@ class TelosPlayer extends Player
             return parent::paperChoice();
         }
 
+*/
 
 
-        #$this->prettyDisplay();
         return parent::rockChoice();
 
     }
