@@ -9,7 +9,11 @@ use Hackathon\Game\Result;
  * @package Hackathon\PlayerIA
  * @author MALANDAIN TIMOTHÉ
  * J'ai essayer d'analyser les coup les plus frequent de mes adversaires.
- * Si mon adversaire joue un coup plus que les autres et que ce coup est
+ * Si mon adversaire joue un coup plus que les autres et que ce coup est superieur
+ * et que l'ecart entre ce coup et le 2eme plus haut est inferieur a 20% je joue le contre de ce coup.
+ * sinon je joue le même coup.
+ * Donc en resumé si il y a une très forte propabilité qu'un coup soit jouer je joue le contre,
+ * c'est mitiger entre le coup le plus fréquent et le 2eme coup le plus fréquent, je joue l'égualité (le coup le plus fréquent)
  */
 class TelosPlayer extends Player
 {
