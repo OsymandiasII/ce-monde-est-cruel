@@ -52,7 +52,12 @@ class TelosPlayer extends Player
             if ($paperScore - max($rockScore, $scissorsScore) > 3)
                 return parent::scissorsChoice();
             else {
-                return parent::paperChoice();
+                if ($rockScore > $scissorsScore){
+                    return parent::paperChoice();
+                }
+                if ($scissorsScore > $rockScore){
+                    return parent::paperChoice();
+                }
             }
         }
         if ($rockScore > max($paperScore, $scissorsScore))
@@ -60,7 +65,12 @@ class TelosPlayer extends Player
             if ($rockScore - max($paperScore, $scissorsScore) > 3)
                 return parent::paperChoice();
             else{
-                return parent::scissorsChoice();
+                if ($paperScore > $scissorsScore){
+                    return parent::rockChoice();
+                }
+                if ($paperScore < $scissorsScore){
+                    return parent::rockChoice();
+                }
             }
         }
         if ($scissorsScore > max($paperScore, $rockScore))
@@ -68,7 +78,7 @@ class TelosPlayer extends Player
             if ($scissorsScore - max($paperScore, $scissorsScore) > 3)
                 return parent::rockChoice();
             else {
-                return parent::rockChoice();
+                return parent::scissorsChoice();
             }
         }
 /*
