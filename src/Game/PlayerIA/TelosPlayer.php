@@ -49,7 +49,8 @@ class TelosPlayer extends Player
         $choice = $this->result->getLastChoiceFor($this->opponentSide);
         if ($paperScore > max($rockScore, $scissorsScore))
         {
-            if ($paperScore - max($rockScore, $scissorsScore) > 3)
+            $percent = $paperScore * 20 * 0.01;
+            if ($paperScore - max($rockScore, $scissorsScore) > $percent)
                 return parent::scissorsChoice();
             else {
                 if ($rockScore > $scissorsScore){
@@ -60,9 +61,10 @@ class TelosPlayer extends Player
                 }
             }
         }
+        $percent = $rockScore * 20 * 0.01;
         if ($rockScore > max($paperScore, $scissorsScore))
         {
-            if ($rockScore - max($paperScore, $scissorsScore) > 3)
+            if ($rockScore - max($paperScore, $scissorsScore) > $percent)
                 return parent::paperChoice();
             else{
                 if ($paperScore > $scissorsScore){
@@ -73,9 +75,10 @@ class TelosPlayer extends Player
                 }
             }
         }
+        $percent = $scissorsScore * 20 * 0.01;
         if ($scissorsScore > max($paperScore, $rockScore))
         {
-            if ($scissorsScore - max($paperScore, $scissorsScore) > 3)
+            if ($scissorsScore - max($paperScore, $scissorsScore) > $percent)
                 return parent::rockChoice();
             else {
                 return parent::scissorsChoice();
