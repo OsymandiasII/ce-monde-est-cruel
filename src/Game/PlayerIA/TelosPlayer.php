@@ -7,7 +7,9 @@ use Hackathon\Game\Result;
 /**
  * Class TelosPlayers
  * @package Hackathon\PlayerIA
- * @author YOUR NAME HERE
+ * @author MALANDAIN TIMOTHÉ
+ * J'ai essayer d'analyser les coup les plus frequent de mes adversaires.
+ * Si mon adversaire joue un coup plus que les autres et que ce coup est
  */
 class TelosPlayer extends Player
 {
@@ -49,8 +51,8 @@ class TelosPlayer extends Player
         $choice = $this->result->getLastChoiceFor($this->opponentSide);
         if ($paperScore > max($rockScore, $scissorsScore))
         {
-            $percent = $paperScore * 20 * 0.01;
-            if ($paperScore - max($rockScore, $scissorsScore) > $percent)
+            $percent = $paperScore * 80 * 0.01;
+            if (max($rockScore, $scissorsScore) < $percent)
                 return parent::scissorsChoice();
             else {
                 if ($rockScore > $scissorsScore){
@@ -61,10 +63,10 @@ class TelosPlayer extends Player
                 }
             }
         }
-        $percent = $rockScore * 20 * 0.01;
+        $percent = $rockScore * 80 * 0.01;
         if ($rockScore > max($paperScore, $scissorsScore))
         {
-            if ($rockScore - max($paperScore, $scissorsScore) > $percent)
+            if (max($paperScore, $scissorsScore) < $percent)
                 return parent::paperChoice();
             else{
                 if ($paperScore > $scissorsScore){
@@ -75,10 +77,10 @@ class TelosPlayer extends Player
                 }
             }
         }
-        $percent = $scissorsScore * 20 * 0.01;
+        $percent = $scissorsScore * 80 * 0.01;
         if ($scissorsScore > max($paperScore, $rockScore))
         {
-            if ($scissorsScore - max($paperScore, $scissorsScore) > $percent)
+            if (max($paperScore, $scissorsScore) < $percent)
                 return parent::rockChoice();
             else {
                 return parent::scissorsChoice();
