@@ -7,7 +7,7 @@ use Hackathon\Game\Result;
 /**
  * Class TelosPlayers
  * @package Hackathon\PlayerIA
- * @author MALANDAIN TIMOTHÉ
+ * @author  TIMOTHÉ MALANDAIN
  * J'ai essayer d'analyser les coup les plus frequent de mes adversaires.
  * Si mon adversaire joue un coup plus que les autres et que ce coup est superieur
  * et que l'ecart entre ce coup et le 2eme plus haut est inferieur a 20% je joue le contre de ce coup.
